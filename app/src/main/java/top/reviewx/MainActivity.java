@@ -1,6 +1,5 @@
 package top.reviewx;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -10,7 +9,6 @@ public class MainActivity extends AppCompatActivity {
 
     WebView webView;
 
-    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
         webView = findViewById(R.id.webView);
         webView.loadUrl("https://anhcuong.rf.gd/");
         WebSettings webSettings = webView.getSettings();
+        webSettings.setDomStorageEnabled(true);
         webSettings.setJavaScriptEnabled(true);
     }
 }
