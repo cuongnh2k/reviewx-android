@@ -14,9 +14,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         webView = findViewById(R.id.webView);
-        webView.loadUrl("http://13.229.201.209:8080");
+
         WebSettings webSettings = webView.getSettings();
+        webSettings.setAllowContentAccess(true);
+        webSettings.setAllowFileAccess(true);
+        webSettings.setDatabaseEnabled(true);
         webSettings.setDomStorageEnabled(true);
+        webSettings.setGeolocationEnabled(true);
+        webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
         webSettings.setJavaScriptEnabled(true);
+        webSettings.setLoadsImagesAutomatically(true);
+        webSettings.setMediaPlaybackRequiresUserGesture(false);
+        webSettings.setSupportMultipleWindows(true);
+
+        webView.loadUrl("http://13.229.201.209:8080");
     }
 }
